@@ -1,0 +1,11 @@
+Counts of dependency lengths.
+
+Dependency lengths of language codes are measured from a UD corpus of that language
+
+Dependency lengths of nesting parentheses regimens (Dyck languages) are taken from simulating that process.
+
+"short-uniform" is uniformly distributed between 1-5
+"long-uniform" is uniformly distributed between 30-50
+
+"large" is the Spanish dependency lengths, where the counts of deplenghths 1-20 are reversed, so it much favors large dependency lengths
+"random" is the Spanish dependency lengths, where the counts of deplengths 1-20 are randomly shuffled between them, using the key specified in the filename.
