@@ -1,0 +1,44 @@
+general:
+    # Nickname for the whole run, set this to what you want!
+    nickname:
+    model_name: simple_repetition10_vocab500-zipf
+    model_type: gpt2
+    checkpoint_number: 5000
+    # effective_batch_size describes ow big do we want the batches to be: per_device_train_batch_size * gradient_accumulation_steps. gradient accumulation steps are then set automatically given the per_device_train_batch_size in training.
+    effective_batch_size: 256
+    # How do we get the new embeddings matrix? Options: [leave_embeddings_alone, sample, use_pretrained_frozen]
+    embeddings_strategy:
+    resume: true
+    save_dir: 
+    wandb_project:
+
+data:
+    # Type and name are the two arguments we pass to huggingface datasets.load_dataset(data.type, data.name)
+    type: 
+    name:
+    # Tokenizer loaded with AutoTokenizer.from_pretrained(data.tokenizer_name, use_fast=True)
+    tokenizer_name:
+    # If general.embeddings_strategy is use_pretrained_frozen, which pretrained model should we take embeddings from. Otherwise can ommit this argument
+    embedding_model_name: 
+
+
+# Parameters to give to huggingface Trainer
+training:
+    adam_beta1: 0.9
+    adam_beta2: 0.98
+    adam_epsilon: 1.0e-06
+    eval_steps: 50
+    evaluation_strategy: steps
+    learning_rate: 0.0004
+    load_best_model_at_end: true
+    logging_steps: 1
+    lr_scheduler_type: linear
+    num_train_epochs: 2
+    overwrite_output_dir: true
+    per_device_eval_batch_size: 16
+    per_device_train_batch_size: 16
+    save_steps: 50
+    save_total_limit: 1
+    seed: 8
+    warmup_ratio: 0.05
+    weight_decay: 0.1
